@@ -1,9 +1,9 @@
 package util;
 
-import sun.security.util.Password;
-
+import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.io.InputStream;
 import java.sql.*;
 import java.util.Properties;
 
@@ -27,9 +27,14 @@ public class JdbcUtils {
      */
     static {
         // 读取配置文件，获取值
+
         try {
             Properties pro = new Properties();
-            pro.load(new FileReader("../src/jdbc.properties"));
+           /* ClassLoader classLoader = JdbcUtils.class.getClassLoader();
+            InputStream res = classLoader.getResourceAsStream("util/jdbc.properties");*/
+           pro.load(new FileReader("D:\\Desktop\\JAVA\\Java\\jdbc\\src\\util\\jdbc.properties"));
+            // 获取src路径下的文件方式：ClassLoader 类加载器
+            /*pro.load(new FileReader("../src/jdbc.properties"));*/
 
             url = pro.getProperty("url");
             user = pro.getProperty("user");
@@ -37,9 +42,11 @@ public class JdbcUtils {
             driver = pro.getProperty("driver");
 
             Class.forName(driver);
-        } catch (IOException e) {
-            e.printStackTrace();
         } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
             e.printStackTrace();
         }
     }
@@ -50,7 +57,7 @@ public class JdbcUtils {
      */
     public static Connection getConnnection() throws SQLException {
 
-        return DriverManager.getConnection(url, user, password);
+            return DriverManager.getConnection(url, user, password);
     }
 
     /**
@@ -83,9 +90,48 @@ public class JdbcUtils {
      * @param conn
      */
     public static void close(ResultSet rs, Statement stmt, Connection conn) {
+        if(rs != null){
+            try {
+                rs.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+
         if(stmt != null){
             try {
                 stmt.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+
+        if(conn != null){
+            try {
+                conn.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    /**
+     * 释放资源
+     * @param stmt1
+     * @param stmt2
+     */
+    public static void close(Statement stmt1, Statement stmt2, Connection conn) {
+        if(stmt1 != null){
+            try {
+                stmt1.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+
+        if(stmt2 != null){
+            try {
+                stmt2.close();
             } catch (SQLException e) {
                 e.printStackTrace();
             }

@@ -18,7 +18,7 @@ public class JdbcDemo9 {
      * 演示JDBC工具类
      * @return
      */
-    public List<Emp> findAll2() {
+    public List<Emp> findAll() {
         ResultSet rs = null;
         Statement stmt = null;
         Connection conn = null;
@@ -73,8 +73,8 @@ public class JdbcDemo9 {
 
         } catch (SQLException e) {
             e.printStackTrace();
-        } /*finally {
-            try {
+        } finally {
+           /* try {
                 if(rs != null){
                     rs.close();
                 }
@@ -96,17 +96,16 @@ public class JdbcDemo9 {
                 }
             } catch (SQLException e) {
                 e.printStackTrace();
-            }
-        }*/
-
-        JdbcUtils.close(rs, stmt, conn);
+            }*/
+            JdbcUtils.close(rs, stmt, conn);
+        }
 
         return list;
     }
 
     public static void main(String[] args) {
          // 要引用非静态方法，需要创建对象
-        List<Emp> list = new JdbcDemo9().findAll2();
+        List<Emp> list = new JdbcDemo9().findAll();
         System.out.println(list);
         System.out.println(list.size());
     }
