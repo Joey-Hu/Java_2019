@@ -30,9 +30,7 @@ public class JdbcUtils {
 
         try {
             Properties pro = new Properties();
-           /* ClassLoader classLoader = JdbcUtils.class.getClassLoader();
-            InputStream res = classLoader.getResourceAsStream("util/jdbc.properties");*/
-           pro.load(new FileReader("D:\\Desktop\\JAVA\\Java\\jdbc\\src\\util\\jdbc.properties"));
+            pro.load(new FileReader("D:\\Desktop\\JAVA\\Java\\jdbc\\src\\util\\jdbc.properties"));
             // 获取src路径下的文件方式：ClassLoader 类加载器
             /*pro.load(new FileReader("../src/jdbc.properties"));*/
 
