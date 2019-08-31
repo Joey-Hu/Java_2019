@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>登陆界面</title>
+		<link rel="stylesheet" type="text/css" href="css/logIn.css"/>
+	</head>
+	<body>
+		<div class="rg_layout">
+			<div class="rg_left">
+				<p class="rg_ch">新用户注册</p>
+				<p class="rg_en">USER REGISTER</p>
+			</div>
+
+			<div class="rg_center">
+				<div class="rg_form">
+					<form action="#" method="post">
+						<table>
+							<tr>
+								<td class="td_left">用户名</td>
+								<td class="td_right"><input type="text" name="username" placeholder="请输入账号"></td>
+							</tr>
+
+							<tr>
+								<td class="td_left">密码</td>
+								<td class="td_right"><input type="password" name="password" placeholder="请输入密码"></td>
+							</tr>
+
+							<tr>
+								<td class="td_left">Email</td>
+								<td class="td_right"><input type="email" name="email" placeholder="请输入邮箱"></td>
+							</tr>
+
+							<tr>
+								<td class="td_left">姓名</td>
+								<td class="td_right"><input type="text" name="realname" placeholder="请输入真实姓名"></td>
+							</tr>
+
+							<tr>
+								<td class="td_left">手机号</td>
+								<td class="td_right"><input type="text" name="phonenumber" placeholder="请输入手机号"></td>
+							</tr>
+
+							<tr>
+								<td class="td_left">性别</td>
+								<td class="td_right">
+									<input type="radio" name="gender" value="male" checked="checked">男
+									<input type="radio" name="gender" value="female">女
+								</td>
+							</tr>
+
+							<tr>
+								<td class="td_left">出生日期</td>
+								<td class="td_right"><input type="date" name="birthday"></td>
+							</tr>
+
+							<tr>
+								<td class="td_left">验证码</td>
+								<td class="td_right"><input type="text" name="verification code"> <img src="./img/authcode.jpg" width="80"></td>
+							</tr>
+							<tr>
+								<td colspan="2" align="center"><input type="submit" value="提交"></td>
+							</tr>
+						</table>
+					</form>
+				</div>
+			</div>
+
+			<div class="rg_right">
+				<p class="rg_yet">已有账号 ? <a href="#">立即登陆</a></p>
+			</div>
+		</div>
+	</body>
+</html>
