@@ -18,7 +18,8 @@ ALTER TABLE grades ADD stu_sex Char(10) AFTER stu_age;
 DESC grades;
 
 INSERT INTO grades(stu_id, stu_name, stu_age, stu_sex, stu_address, math, english)
-VALUES (1, "马云", 55, "男", "杭州", 66, 78);
+VALUES (1, "马云", 56
+, "男", "杭州", 66, 78);
 
 INSERT INTO grades(stu_id, stu_name, stu_age, stu_sex, stu_address, math, english)
 VALUES (2, "马化腾", 45, "女", "深圳", 98, 87);
