@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>自动跳转</title>
+	</head>
+	<body>
+		<p align="center"><span id="time" style="color: red;">5</span>秒之后，自动跳转首页...</p>
+		
+		<script type="text/javascript">
+			var time = document.getElementById("time");
+			
+			// 读秒 效果实现
+			var second = 5;
+			function showTime() {
+				second--;
+				
+				time.innerHTML = second + "";
+				
+				if(second == 0) {
+					location.href = "https://www.baidu.com";
+				}
+			}
+			
+			// 设置计时器
+			setInterval(showTime, 1000);
+		</script>
+	</body>
+</html>

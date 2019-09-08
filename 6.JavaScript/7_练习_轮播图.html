@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>轮播图</title>
+	</head>
+	<body>
+		<img id="image" src="./img/image1.jpg" width="100%">
+		
+		
+		<script type="text/javascript">
+			var num = 1;
+			
+			function imgChange() {
+				num ++;
+				if (num > 3) {
+					num = 1;
+				}
+				var image = document.getElementById("image");
+				image.src = "./img/image" + num + ".jpg" 
+			}
+			
+			setInterval(imgChange, 3000);
+		</script>
+	</body>
+</html>
