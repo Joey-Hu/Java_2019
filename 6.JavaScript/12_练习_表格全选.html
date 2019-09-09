@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>表格全选</title>
+		<style type="text/css">
+			table {
+				border: 1px, solid;
+				margin: auto;
+				width: 500px;
+			}
+			
+			td,th{
+				text-align: center;
+				border: 1px, solid;
+			}
+			
+			div {
+				text-align: center;
+				margin: 50px;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="div1">
+			<input type="text" name="id" id="id" placeholder="请输入编号" />
+			<input type="text" name="name" id="name" placeholder="请输入姓名" />
+			<input type="text" name="sex" id="sex" placeholder="请输入性别" />
+			<input type="submit" name="" id="btn_add" value="添加" />
+		</div>
+		
+		<table id="stu_table" border="" cellspacing="" cellpadding="">
+			<caption>学生信息表</caption>
+			<tr>
+				<th><input type="checkbox" id="select_all"/></th>
+				<th>编号</th>
+				<th>姓名</th>
+				<th>性别</th>
+				<th>操作</th>
+			</tr>
+			
+			<tr>
+				<td><input type="checkbox" name="cb" /></td>
+				<td>1</td>
+				<td>张三</td>
+				<td>男</td>
+				<td><a href="javascript:void(0)" onclick="delTr(this)">删除</a></td>
+			</tr>
+		</table>
+		
+		<div id="div2">
+			<input type="button" id="btn_all" value="全选" />
+			<input type="button" id="btn_none" value="全不选" />
+			<input type="button" id="btn_reverse" value="反选" />
+		</div>
+		
+		
+		<script type="text/javascript">
+			/**
+			 * 分析：
+			 *     1. 三个按钮：全选，全不选，反选
+			 *     2. 鼠标移动到行上市变红
+			 *     3. 点击表格标题部分的单选框也是全选
+			 */
+			
+			// 在页面加载完成后绑定事件
+			window.onload = function() {
+				// 添加按钮
+				document.getElementById("btn_add").onclick = function() {
+					// 2. 获取文本框的内容
+					var id = document.getElementById("id").value;
+					var name = document.getElementById("name").value;
+					var sex = document.getElementById("sex").value;	
+					
+					// 使用innerHTML添加记录
+					var table = document.getElementById("stu_table");
+					table.innerHTML += "<tr>" + 
+					"<td><input type='checkbox' name='cb' /></td>" + 
+					"<td>" + id + "</td>" +
+					"<td>" + name + "</td>" +
+					"<td>" + sex + "</td>" +
+					"<td><a href='javascript:void(0)' onclick='delTr(this)'>删除</a></td>" + 
+				"</tr>";
+				}
+				
+				// 全选按钮
+				document.getElementById("btn_all").onclick = function() {
+					// 获取所有checkbox
+					var cbs = document.getElementsByName("cb");
+					// 遍历cbs,设置每一个cb的checked属性为true
+					for(var i = 0; i < cbs.length; i++) {
+						/**tips:
+						 * .setAttribute 是用来添加新属性的，
+						 *  修改属性尽量使用.属性来修改
+						 */
+						// cbs[i].setAttribute("checked", "true");
+						cbs[i].checked = true;
+					}
+				}
+				
+				// 全不选按钮
+				document.getElementById("btn_none").onclick = function() {
+					// 获取所有checkbox
+					var cbs = document.getElementsByName("cb");
+					// 遍历cbs,设置每一个cb的checked属性为false
+					for(var i = 0; i < cbs.length; i++) {
+						// cbs[i].setAttribute("checked", "false");
+						cbs[i].checked = false;
+					}
+				}
+				
+				// 反选按钮
+				document.getElementById("btn_reverse").onclick = function() {
+					// 获取所有checkbox
+					var cbs = document.getElementsByName("cb");
+					// 遍历cbs,判断每一个cb的checked属性,true改为false, false改为true
+					for(var i = 0; i < cbs.length; i++) {
+						// cbs[i].setAttribute("checked", "false");
+						if(cbs[i].checked == true) {
+							cbs[i].checked = false;
+						}else {
+							cbs[i].checked = true;
+						}
+					}
+				}
+				
+				// 全选cb
+				document.getElementById("select_all").onclick = function() {
+					// 获取所有checkbox
+					var cbs = document.getElementsByName("cb");
+					// 遍历cbs,设置每一个cb的checked属性为false
+					for(var i = 0; i < cbs.length; i++) {
+						// cbs[i].setAttribute("checked", "false");
+						cbs[i].checked = this.checked;
+					}
+				}
+				
+				
+				function delTr(obj) {
+					var table = obj.parentNode.parentNode.parentNode;
+					var tr = obj.parentNode.parentNode;
+					table.removeChild(tr);
+				}
+			}
+ 			
+			
+		</script>
+		
+	</body>
+</html>
