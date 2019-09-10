@@ -19,6 +19,14 @@
 				text-align: center;
 				margin: 50px;
 			}
+			
+			.over {
+				background-color: pink;
+			}
+			
+			.out {
+				background-color: wihte;
+			}
 		</style>
 	</head>
 	<body>
@@ -124,14 +132,14 @@
 					}
 				}
 				
-				// 全选cb
+				// 全选cb -- 还没搞定
 				document.getElementById("select_all").onclick = function() {
+					var all = document.getElementById("select_all");
 					// 获取所有checkbox
 					var cbs = document.getElementsByName("cb");
-					// 遍历cbs,设置每一个cb的checked属性为false
+					// 遍历cbs,设置每一个cb的checked属性与select_all相同
 					for(var i = 0; i < cbs.length; i++) {
-						// cbs[i].setAttribute("checked", "false");
-						cbs[i].checked = this.checked;
+						cbs[i].checked = all.checked;
 					}
 				}
 				
@@ -140,6 +148,19 @@
 					var table = obj.parentNode.parentNode.parentNode;
 					var tr = obj.parentNode.parentNode;
 					table.removeChild(tr);
+				}
+				
+				// 鼠标移动到和移出tr的颜色变化
+				var trs = document.getElementsByTagName("tr");
+				
+				for(var i = 0; i < trs.length; i++) {
+					trs[i].onmouseover = function() {
+						this.className = "over";
+					}
+					
+					trs[i].onmouseout = function() {
+						this.className = "out";
+					}
 				}
 			}
  			
