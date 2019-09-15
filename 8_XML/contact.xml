@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <Person> 
-  <person id="name">
-    <name>huhao</name>
-    <num>777777</num>
-  </person>
+  <person id="huangrong"> 
+    <name>huangrong</name>  
+    <num>222222222</num> 
+  </person> 
 </Person>

@@ -27,17 +27,30 @@ public class TestTelTool {
             switch (i) {
                 case 1:
                     System.out.println("请输入联系人姓名");
-                    String name=sc.next();
+                    String name = sc.next();
                     System.out.println("请输入电话号码");
-                    String num=sc.next();
+                    String num = sc.next();
                     tt.addNum(name, num);
+                    break;
+                case 2:
+                    System.out.println("请输入要修改的联系人姓名");
+                    String name2=sc.next();
+                    System.out.println("请输入要修改的联系人电话号码");
+                    String num2=sc.next();
+                    tt.setNum(name2, num2);
+                    break;
+                case 3:
+                    System.out.println("请输要删除的联系人姓名");
+                    String name3 = sc.next();
+                    tt.delNum(name3);
+                    break;
+                case 4:
+                    System.out.println("查询结果如下:");
+                    tt.queryAll();
                     break;
                 default:
                     System.out.println("输入错误");
             }
         }
-
-
-
     }
 }
