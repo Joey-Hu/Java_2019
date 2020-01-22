@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>表单标签</title>
+	</head>
+	<body>
+		<form action="#" method="post">
+			<label for="username">用户名</label> <input type="text" id="username" name="username" placeholder="请输入用户名"><br>
+			密码 <input type="password" name="password"><br>
+			
+			性别 <input type="radio" name="gender" value="male" checked="checked"> 男
+				 <input type="radio" name="gender" value="female"> 女<br>
+		    
+			爱好 <input type="checkbox" name="interests" value="shopping"> 逛街
+			    <input type="checkbox" name="interests" value="coding" checked="checked"> code
+				<input type="checkbox" name="interests" value="video game"> 游戏<br>
+			
+			照片 <input type="file" name="picture"><br>
+			
+			隐藏域 <input type="hidden" name="hidden" value="aaa"><br>
+			
+			颜色 <input type="color" name="color"><br>
+			
+			生日 <input type="date" name="birthday"><br>
+			
+			生日 <input type="datetime-local" name="birthday"><br>
+			
+			邮箱 <input type="email" name="email"><br>
+			
+			省份 <select name="province">
+					<option value="">--请选择--</option>
+					<option value="1">北京</option>
+					<option value="2">上海</option>
+				    <option value="3">广州</option>
+				</select><br>
+				
+			个人描述 <textarea rows="5" cols="100">
+				
+			</textarea>
+			<br>
+			
+			<input type="submit" value="提交"></input>
+		</form>
+	</body>
+</html>

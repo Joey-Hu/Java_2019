@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>扩展选择器</title>
+		<style>
+			div p{
+				color: #FF0000;
+			}
+			
+			div > h1 {
+				color: #0000FF;
+			}
+			
+			input[type="text"] {
+				border: 5px solid;
+			}
+			
+			a:link {
+				color: pink;
+			}
+			
+			a:hover {
+				color: green;
+			}
+			
+			a:active {
+				color: yellow;
+			}
+			
+			a:visited {
+				color: red;
+			}
+			
+		</style>
+	</head>
+	<body>
+		<div>
+			<h1>满江红</h1>
+		</div>
+		
+		<div>
+			<p>岳飞</p>
+		</div>
+		
+		
+		<p>怒发冲冠，凭栏处，潇潇雨歇。</p>
+		
+		<input type="text" name="username">
+		<br>
+		<input type="password" name="password">
+		<br>
+		
+		<a href="http://www.baidu.com">百度</a>
+	</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>window对象</title>
+	</head>
+	<body>
+		
+		<input type="button" name="openBtn" id="openBtn" value="打开窗口" />
+		<input type="button" name="closeBtn" id="closeBtn" value="关闭窗口" />
+		
+		<script type="text/javascript">
+			/* alert("First day in lab.");
+			var flag = confirm("是否退出？");
+			/* if(flag) {
+				语句1
+			}else {
+				语句2
+			} */
+			
+			/*var userName = prompt("输入用户名:");
+			alert(userName); */
+			
+			/* var openBtn = document.getElementById("openBtn");
+			var closeBtn  = document.getElementById("closeBtn");
+			var newWindow;
+			
+			// 打开新窗口
+			openBtn.onclick = function() {
+				newWindow = window.open("https://www.baidu.com");
+			}
+			
+			// 关闭新窗口
+			closeBtn.onclick = function() {
+				newWindow.close();
+			} */
+			
+			
+			// 设置一次性定时器
+			var timeOut1 = setTimeout(fun, 2000);
+			clearTimeout(timeOut1);
+			function fun() {
+				alert("boom~~");
+			}
+			
+			// 设置循环定时器
+			var interval1 = setInterval(fun, 2000);
+			clearInterval(interval1);
+			
+			
+		</script>
+	</body>
+</html>

@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>登陆界面</title>
+		<link rel="stylesheet" type="text/css" href="css/logIn.css"/>
+	</head>
+	<body>
+		<div class="rg_layout">
+			<div class="rg_left">
+				<p class="rg_ch">新用户注册</p>
+				<p class="rg_en">USER REGISTER</p>
+			</div>
+
+			<div class="rg_center">
+				<div class="rg_form">
+					<form id="form" action="#" method="post">
+						<table>
+							<tr>
+								<td class="td_left">用户名</td>
+								<td class="td_right">
+									<input type="text" name="username" id="username" placeholder="请输入账号">
+									<span id="s_username" class="error"></span>
+									</td>
+							</tr>
+
+							<tr>
+								<td class="td_left">密码</td>
+								<td class="td_right">
+									<input type="password" name="password" id="password" placeholder="请输入密码">
+									<span id="s_password" class="error"></span>
+									</td>
+							</tr>
+
+							<tr>
+								<td class="td_left">Email</td>
+								<td class="td_right"><input type="email" name="email" placeholder="请输入邮箱"></td>
+							</tr>
+
+							<tr>
+								<td class="td_left">姓名</td>
+								<td class="td_right"><input type="text" name="realname" placeholder="请输入真实姓名"></td>
+							</tr>
+
+							<tr>
+								<td class="td_left">手机号</td>
+								<td class="td_right"><input type="text" name="phonenumber" placeholder="请输入手机号"></td>
+							</tr>
+
+							<tr>
+								<td class="td_left">性别</td>
+								<td class="td_right">
+									<input type="radio" name="gender" value="male" checked="checked">男
+									<input type="radio" name="gender" value="female">女
+								</td>
+							</tr>
+
+							<tr>
+								<td class="td_left">出生日期</td>
+								<td class="td_right"><input type="date" name="birthday"></td>
+							</tr>
+
+							<tr>
+								<td class="td_left">验证码</td>
+								<td class="td_right"><input type="text" name="verification code" placeholder="请输入验证码"> 
+									<img id="image_auth" src="./img/authcode.jpg" width="80">
+								</td>
+							</tr>
+							<tr>
+								<td colspan="2" align="center"><input id="btn_sub" type="submit" value="注册"></td>
+							</tr>
+						</table>
+					</form>
+				</div>
+			</div>
+
+			<div class="rg_right">
+				<p class="rg_yet">已有账号 ? <a href="#">立即登陆</a></p>
+			</div>
+		</div>
+		
+		<script type="text/javascript">
+			/**
+			 * 1. 给表单绑定onsubmit事件，监听器中判断每一个方法校验的结果。如果都为true，则监听器方法返回true，有一个为false，则返回false
+			 * 2. 定义一些方法分别校验各个表单项
+			 * 3. 给各个表单项绑定onblur事件
+			 */
+			
+			window.onload= function() {
+				// 表单绑定onsubmit事件
+				document.getElementById("form").onsubmit = function() {
+					// 校验用户名 checkUsername() 
+					// 校验密码 checkPassword()
+					return checkUsername() && checkPassword()
+				}
+			}
+			
+			document.getElementById("username").onblur = checkUsername;
+			document.getElementById("password").onblur = checkPassword;
+
+			
+			// 校验用户名 
+			function checkUsername() {
+				// 获取用户名值
+				var username = document.getElementById("username").value;
+				// 定义正则表达式
+				var username_reg = /^\w{6,12}$/    // \w{6，12}    匹配6~12位字母或数字或下划线或汉字
+				// 判断值是否符合正则表达式
+				var flag = username_reg.test(username);
+				// 提示信息
+				var s_username = document.getElementById("s_username");
+				if (flag) {
+					// 提示绿色对勾
+					s_username.innerHTML = "<img width='35' height='25' src='./img/duigou.jpg'>";
+				}else {
+					// 提示红色的用户名有误
+					s_username.innerHTML = '用户格式有误';
+				}
+				
+				return flag;
+			}
+			
+			// 校验密码
+			function checkPassword() {
+				// 获取用户名值
+				var password = document.getElementById("password").value;
+				// 定义正则表达式
+				var password_reg = /^\w{6,12}$/    // \w{6，12}    匹配6~12位字母或数字或下划线或汉字
+				// 判断值是否符合正则表达式
+				var flag = password_reg.test(username);
+				// 提示信息
+				var s_password = document.getElementById("s_password");
+				if (flag) {
+					// 提示绿色对勾
+					s_password.innerHTML = "<img width='35' height='25' src='./img/duigou.jpg'>";
+				}else {
+					// 提示红色的用户名有误
+					s_password.innerHTML = '密码格式有误';
+				}
+				
+				return flag;
+			}
+			
+		</script>
+		
+	</body>
+</html>
